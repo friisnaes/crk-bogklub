@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRK KIK bogklub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0C1829;--navy2:#14243D;--navy3:#1D3050;--blue:#2A5298;--blue2:#3A6BC2;--gold:#C9A84C;--gold2:#E2C06A;--text:#E4EAF4;--text2:#8A9BB8;--text3:#4E6080;--brd:rgba(255,255,255,0.07);--brd2:rgba(255,255,255,0.13)}
+body{font-family:'DM Sans',-apple-system,sans-serif;line-height:1.7;color:var(--text);background:var(--navy);min-height:100vh}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.3}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+header{text-align:center;padding:50px 20px 40px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-bottom:3px solid var(--gold);margin-bottom:40px}
+h1{font-size:3em;margin-bottom:10px;letter-spacing:2px;color:var(--text)}
+.subtitle{font-size:1em;opacity:.8;font-style:italic;color:var(--gold);letter-spacing:1px}
+.hero-box{background:linear-gradient(135deg,var(--navy2) 0%,var(--navy3) 100%);border:1.5px solid var(--gold);border-radius:12px;padding:35px;margin-bottom:40px;display:flex;align-items:center;gap:30px;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+.hero-box img{width:200px;height:auto;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.hero-content h2{font-size:1.7em;margin-bottom:16px;color:var(--gold);line-height:1.4}
+.hero-content p{font-size:1.05em;line-height:1.8;color:var(--text2)}
+section{background:var(--navy2);border:1.5px solid var(--brd2);padding:40px;margin-bottom:32px;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+h2{color:var(--text);margin-bottom:28px;font-size:2em;font-weight:600;letter-spacing:.5px;border-bottom:2px solid var(--gold);padding-bottom:12px}
+.next-meeting{border-top:3px solid var(--blue)}
+.meeting-details{font-size:1.1em;line-height:2}
+.meeting-details strong{color:var(--gold);font-weight:600}
+.book-feature{border-top:3px solid var(--gold)}
+.featured-book{display:flex;align-items:center;gap:35px}
+.book-cover{width:220px;height:auto;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.book-info h3{font-size:2em;color:var(--text);margin-bottom:12px;font-weight:600}
+.book-info .author{font-size:1.25em;color:var(--text2);font-style:italic}
+.reflection-item-simple{margin-bottom:26px;padding:22px;background:var(--navy3);border-left:4px solid var(--gold);border-radius:8px}
+.reflection-item-simple:last-child{margin-bottom:0}
+.reflection-item-simple h3{font-size:1.35em;color:var(--gold);margin-bottom:14px;font-weight:600}
+.reflection-item-simple p{font-size:1.05em;line-height:1.8;color:var(--text2);margin:6px 0}
+.reflection-points{list-style:none;padding-left:20px;margin-top:12px}
+.reflection-points li{padding:6px 0;position:relative;line-height:1.7;color:var(--text2)}
+.reflection-points li:before{content:"•";position:absolute;left:-15px;color:var(--gold);font-size:1.3em}
+.meeting-date-item{padding:16px 24px;border-bottom:1px solid var(--brd);font-size:1.1em;background:var(--navy3);margin-bottom:10px;border-radius:6px;color:var(--text)}
+.meeting-date-item:last-child{border-bottom:none}
+.book-item{padding:20px 0;border-bottom:1px solid var(--brd)}
+.book-item:last-child{border-bottom:none}
+.book-title{font-size:1.3em;color:var(--text);font-weight:600;margin-bottom:8px}
+.book-author{color:var(--gold);font-style:italic;font-size:1.05em}
+.book-date{color:var(--text3);font-size:.95em;margin-top:6px}
+.book-description{margin-top:16px;padding:18px;background:var(--navy3);border-radius:8px;font-size:1em;line-height:1.8;color:var(--text2)}
+.reading-reminder{background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);border-radius:10px;padding:28px 32px;margin:35px 0;box-shadow:0 6px 20px rgba(42,82,152,.3)}
+.reading-reminder p{margin:0;font-size:1.15em;line-height:1.7;font-weight:500;color:var(--text)}
+.about{background:var(--navy2);border-top:3px solid var(--blue)}
+.about p{margin-bottom:18px;font-size:1.08em;line-height:1.9;color:var(--text2)}
+.member-list{list-style:none;padding:0;margin:20px 0 0 0;columns:2;column-gap:40px}
+.member-list li{padding:10px 0;color:var(--text2);font-size:1.05em}
+.contact{text-align:center;padding:28px;color:var(--text2);background:var(--navy3);border-radius:10px;margin-top:30px}
+.contact a{color:var(--gold);text-decoration:none;font-weight:600}
+.contact a:hover{text-decoration:underline}
+@media (max-width:768px){
+h1{font-size:2.2em}
+.hero-box{flex-direction:column;text-align:center;padding:28px}
+.hero-box img{width:160px}
+.featured-book{flex-direction:column;text-align:center}
+.book-cover{width:180px}
+section{padding:28px}
+.member-list{columns:1}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>CRK KIK bogklub</h1>
+<p class="subtitle">Charlottenlund Rotary's bogklub</p>
+</header>
+<div class="container">
+<div class="hero-box">
+<img src="borsen_20_2_26.jpeg" alt="Børsen artikel">
+<div class="hero-content">
+<h2>Vi har sg gang i det rigtige - det er det de unge og skarpe vil ha'</h2>
+<p>Bøger, lix, reflekteret samtale, hjernefitness, øget empati, reduceret stress, bedre kognitive evner - for blot at nævne nogle få.</p>
+</div>
+</div>
+<section class="next-meeting">
+<h2>📅 Næste møde</h2>
+<div class="meeting-details">
+<p><strong>Dato:</strong> Mandag 4. maj 2026</p>
+<p><strong>Tidspunkt:</strong> Kl. 19:00</p>
+<p><strong>Sted:</strong> Ved vi ikke endnu</p>
+<p><strong>Vært:</strong> Ved vi ikke endnu</p>
+<p><strong>Bog:</strong> Xi Jinping - Verdens mest magtfulde mand (findes også på lydbog på Mofibo)</p>
+</div>
+</section>
+<div class="reading-reminder">
+<p>💡 Læsning er hjernens styrketræning – det holder dig skarp og beskytter mod kognitiv tilbagegang.</p>
+</div>
+<section class="book-feature">
+<h2>📖 Denne gang læser vi</h2>
+<div class="featured-book">
+<img src="xi_jinping.png" alt="Xi Jinping - Verdens mest magtfulde mand" class="book-cover">
+<div class="book-info">
+<h3>Xi Jinping - Verdens mest magtfulde mand</h3>
+<p class="author">Stefan Aust & Adrian Geiges</p>
+</div>
+</div>
+</section>
+<div class="reading-reminder">
+<p>💡 Bøger giver perspektiv på dit eget liv, når karrieren topper og spørgsmålet om mening bliver presserende.</p>
+</div>
+<section>
+<h2>💭 3 refleksioner til bogen</h2>
+<div class="reflection-item-simple">
+<h3>1. Har Vesten været naive omkring Kina siden 1990'erne?</h3>
+<p>Har vi troet for meget på idéen om at handel automatisk skaber demokrati?</p>
+</div>
+<div class="reflection-item-simple">
+<h3>2. Er Xi Jinping en stærk leder – eller en farlig koncentration af magt?</h3>
+<p>Centralisering kan skabe effektivitet, men også katastrofale fejltagelser.</p>
+</div>
+<div class="reflection-item-simple">
+<h3>3. Er Kinas model en reel konkurrent til vestligt demokrati?</h3>
+<p>Hvis autoritær kapitalisme leverer:</p>
+<ul class="reflection-points">
+<li>Stabilitet</li>
+<li>Vækst</li>
+<li>Teknologisk dominans</li>
+</ul>
+<p style="margin-top:10px">kan den blive attraktiv for andre lande.</p>
+</div>
+</section>
+<div class="reading-reminder">
+<p>💡 Litteratur træner empati – du bliver en bedre far, partner og leder gennem andres indre liv.</p>
+</div>
+<section>
+<h2>📆 Kommende mødedatoer</h2>
+<div class="meeting-date-item"><p>Mandag 4.5.26</p></div>
+<div class="meeting-date-item"><p>Mandag 26.8.26</p></div>
+<div class="meeting-date-item"><p>Mandag 19.10.26</p></div>
+<div class="meeting-date-item"><p>Mandag 11.1.27</p></div>
+</section>
+<section>
+<h2>📚 Bøger vi har læst</h2>
+<div class="book-item">
+<div class="book-title">Hvis Rusland vinder</div>
+<div class="book-author">Carlo Masala</div>
+<div class="book-date">2026</div>
+</div>
+<div class="book-item">
+<div class="book-title">Mere er aldrig nok</div>
+<div class="book-author">Niels Overgaard</div>
+<div class="book-date">2026</div>
+</div>
+<div class="book-item">
+<div class="book-title">Fyrsten</div>
+<div class="book-author">Niccolò Machiavelli</div>
+<div class="book-date">2025</div>
+</div>
+<div class="book-item">
+<div class="book-title">Historien som våben</div>
+<div class="book-author">Morten Lassen</div>
+<div class="book-date">2024</div>
+</div>
+<div class="book-item">
+<div class="book-title">Storm på vej</div>
+<div class="book-author">Steffen Kretz</div>
+<div class="book-date">2024</div>
+</div>
+</section>
+<div class="reading-reminder">
+<p>💡 At læse fordybet er modstand mod scroll-kulturen – det genopbygger din opmærksomhed og mentale disciplin.</p>
+</div>
+<section>
+<h2>💡 Bøger på ønskelisten</h2>
+<div class="book-item">
+<div class="book-title">Frankenstein</div>
+<div class="book-author">Mary Shelley</div>
+<div class="book-description">• Er jo oppe i tiden pga den nye filmatisering. Er spændende da den er skrevet af en kvinde Mary Shelley og udkom allerede i 1819.<br>• Baggrundshistorien for tilblivelsen er også interessant. Handlingen er egentlig en moderne Prometheus (som var en græsk titan der stjal ild fra Guderne og gav til mennesket; så en skabelses beretning kan du sige pakket ind i lidt horror).<br>• Masser at snakke om i forhold til hvor vi er idag i verden. Hvem spiller Gud. Genterapi etc etc.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Falske sandheder</div>
+<div class="book-author">Morten Albæk – 2022</div>
+<div class="book-description">• Fordi Falske sandheder udfordrer den selvfede tidsånd, hvor alle har ret, men få har tænkt sig om.<br>• Fordi Morten Albæk prikker til vores illusion om autenticitet, mening og moral – og tvinger os til at se hykleriet i øjnene.<br>• Fordi bogen ikke blot vil forstå verden, men vil have dig til at tage stilling til, hvordan du selv bidrager til dens forfald eller forandring.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Den sjette masseuddøen - En unaturlig naturhistorie</div>
+<div class="book-author">Elizabeth Kolbert</div>
+</div>
+<div class="book-item">
+<div class="book-title">Amerika stiller uret tilbage</div>
+<div class="book-author">David Trads</div>
+</div>
+<div class="book-item">
+<div class="book-title">Før jeg forsvinder</div>
+<div class="book-author">Paul Kalanithi</div>
+</div>
+<div class="book-item">
+<div class="book-title">Vindervilje</div>
+<div class="book-author">Viktor Axelsen</div>
+</div>
+<div class="book-item">
+<div class="book-title">Afdelingen for magisk tænkning</div>
+<div class="book-author">Morten Münster – 2025</div>
+<div class="book-description">• Fordi Afdelingen for magisk tænkning afslører, hvor irrationelle vi er – især når vi tror, vi handler rationelt.<br>• Fordi Morten Münster gør adfærdsdesign både underholdende og ubehageligt ved at vise, hvordan du selv er fanget i de samme mønstre, du tror, andre har.<br>• Fordi bogen giver dig værktøjer til at tænke skarpere, handle klogere – og slippe fri af den selvbedragets komfortzone.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Den gamle mand og havet</div>
+<div class="book-author">Ernest Hemingway – 1952 (Pulitzer 1953, Nobel 1954)</div>
+<div class="book-description">• Fordi Den gamle mand og havet er den enkleste fortælling om det sværeste i livet – at blive ved, når alt synes tabt.<br>• Fordi Hemingways sprog er så rent og råt, at hver linje føles som saltvand og stædighed.<br>• Fordi bogen minder dig om, at værdighed ikke handler om sejren, men om kampen – og om aldrig at miste respekten for det, du kæmper imod.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Min kamp (bind 1)</div>
+<div class="book-author">Karl Ove Knausgård – 2009</div>
+<div class="book-description">• Fordi Min kamp, bind 1 er brutal ærlighed forklædt som hverdagsliv – og får dig til at se dit eget livs banalitet som noget stort.<br>• Fordi Knausgård skriver uden filter, uden facade, og viser hvor skrøbelig og selvmodsigende et menneske virkelig er.<br>• Fordi bogen er som et spejl, du ikke helt tør kigge i – men som du alligevel ikke kan lægge fra dig.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Demon Copperhead</div>
+<div class="book-author">Barbara Kingsolver (Pulitzer Prize 2023)</div>
+<div class="book-description">• Handler om en ung mand i the Appalachian Mountains, født af single mother i fattigdom med kun en gave fra hans far, nemlig hans good looks.<br>• Skrevet i "jeg" form og handler om hans kamp for survival. Inspirationen til bogen kommer fra Dickens "David Copperfield" og hans oplevelser som overlever fra institutional poverty.<br>• Bogen er et politisk statement om at der "intet" er sket siden Dickens. Socialrealisme pakket ind i USA diskussioner.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Napoleon on the Art of War eller Alexander den Store</div>
+<div class="book-author">[Forfatter]</div>
+<div class="book-description">• Læste engang for mange år siden en fantastisk bog omkring Napoleons rise to fame gennem at vinde en del slag i sine tidlige år som lavere rangerende officer og siden general. At læse om Napoleon er også relevant i vore dage og der er masser at tale om.<br>• Alternativ til Napoleon er Alexander den Store. Det interessante ved disse historiske figurer er at forstå deres actions i deres samtid og så deres mulige relevans og læring i vores nutid.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Mit liv på scor.dk</div>
+<div class="book-author">Cecilie Olrik</div>
+<div class="book-description">• Faktisk ret underholdende, og let læst/hørt.<br>• Der bliver virkelig åbnet op for en side af det danske samfund som (jeg) / man måske ikke har oplevet eller hørt om før.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Kriger uden maske</div>
+<div class="book-author">Hanne-Vibeke Holst</div>
+<div class="book-description">• Helt vildt flot skrevet biografisk roman om Sonja Ferlov Mancoba, livet i Europa i 20'30 og 1940'er og henvisninger til "alle" de store kunstnavne:<br>• Ejler Bille, Richard Mortensen, Bjerke-Petersen, Munch-Petersen og surrealismens gennembrud og kvaler.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Alkymisten</div>
+<div class="book-author">Paulo Coelho</div>
+<div class="book-description">• En andalusisk fårehyrde, Santiago, drømmer om en skat og rejser til pyramiderne for at finde den. Ved at følge sit hjerte og søge sin skæbne opnår han rigdom og lykke.<br>• Dette er en brasiliansk bestseller, købt af over 30 millioner mennesker i 150 lande - en magisk, eventyrlig fortælling fyldt med lykke og især visdom.<br>• En bog der kan sætte tanker i gang om sit eget liv.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Spot on – Om Gud, os og verden og vejen til den nye jord</div>
+<div class="book-author">Kim Hjermind</div>
+<div class="book-description">• Vi møder i stigende grad andre religioner i vores hverdag. Her kan det være godt at vide, hvad kristendommen egentlig går ud på. Det forsøger bogen at udlægge på en struktureret måde. Fra skabelse til ny jord.<br>• Vi har mulighed for besøg af forfatteren.</div>
+</div>
+<div class="book-item">
+<div class="book-title">Mer' og bedre sex</div>
+<div class="book-author">Jakob Olrik</div>
+</div>
+</section>
+<div class="reading-reminder">
+<p>💡 Bredde i læsning giver dig kulturel autoritet – du bliver mere interessant og relevant at tale med.</p>
+</div>
+<section class="about">
+<h2>Om klubben</h2>
+<p><strong>Charlottenlund Rotary's bogklub</strong> blev grundlagt i 2024.</p>
+<p>Vi mødes 3-4 gange om året i private rammer for at diskutere og dele vores kærlighed til litteratur. Vores læsninger spænder bredt - fra klassikere til moderne værker, fra filosofi til fiktion.</p>
+<h3 style="margin-top:30px;margin-bottom:18px;color:var(--gold);font-size:1.5em">Klubbens medlemmer</h3>
+<ul class="member-list">
+<li>Anders N</li><li>Christian BM</li><li>Claus T-H</li><li>Dan E</li><li>Frederik L</li><li>Gert T</li><li>Hans W</li><li>Henrik B</li><li>Jacob E</li><li>Kasper M</li><li>Kenneth LH</li><li>Kim H</li><li>Lars W</li><li>Michael L</li><li>Mikael T</li><li>Thomas F</li>
+</ul>
+</section>
+<div class="contact">
+<p><strong>Kontakt:</strong> Thomas Friisnæs<br>
+<a href="mailto:friisnaes@gmail.com">friisnaes@gmail.com</a></p>
+</div>
+</div>
+</body>
+</html>
